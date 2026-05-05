@@ -2,7 +2,12 @@
 
 [![Packet Tracer](https://img.shields.io/badge/Cisco-Packet_Tracer-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white)](https://www.netacad.com/courses/packet-tracer)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![CYBERUS](https://img.shields.io/badge/Target-CYBERUS_Programme-FF6B35?style=for-the-badge)](https://cyberus-master.eu/)
+[![Networking](https://img.shields.io/badge/Networking-005C99?style=for-the-badge&logo=cisco&logoColor=white)]()
+[![Security](https://img.shields.io/badge/Security-CC0000?style=for-the-badge&logo=hackthebox&logoColor=white)]()
+[![AI & ML](https://img.shields.io/badge/AI_&_ML-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)]()
+[![Wired & Wireless](https://img.shields.io/badge/Wired_&_Wireless-0077B5?style=for-the-badge&logo=ieee&logoColor=white)]()
+[![Intent-Based Networking](https://img.shields.io/badge/Intent--Based_Networking-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white)]()
+[![Smart City & Devices](https://img.shields.io/badge/Smart_City_&_Devices-2ECC71?style=for-the-badge&logo=raspberrypi&logoColor=white)]()
 
 ## 👋 Introduction
 
