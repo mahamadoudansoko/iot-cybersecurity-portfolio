@@ -1,0 +1,40 @@
+﻿# Packet Tracer
+*.pkt.bak
+*.pkz.bak
+
+# Python
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Logs
+*.log
+
+# Reports (keep source, not compiled)
+*.pdf
+*.docx
+
+# Credentials (NEVER commit these)
+*.key
+*.pem
+credentials.txt
+secrets.yaml

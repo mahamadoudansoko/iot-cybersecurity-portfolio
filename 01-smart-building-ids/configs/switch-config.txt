@@ -1,0 +1,81 @@
+﻿# Switch Configuration - Core-Switch-Building
+# ===========================================
+
+enable
+configure terminal
+hostname Core-Switch-Building
+
+! Create VLANs
+vlan 10
+ name Management
+vlan 20
+ name IoT-Sensors
+vlan 30
+ name Security-Cameras
+vlan 40
+ name User-Devices
+vlan 50
+ name Servers
+exit
+
+! Configure VLAN interface for management
+interface vlan 10
+ ip address 192.168.10.1 255.255.255.0
+ no shutdown
+ exit
+
+! Configure trunk port to router
+interface GigabitEthernet1/0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40,50
+ no shutdown
+ exit
+
+! Configure access ports for APs (IoT VLAN)
+interface range GigabitEthernet1/0/5-7
+ switchport mode access
+ switchport access vlan 20
+ switchport port-security
+ switchport port-security maximum 10
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ spanning-tree portfast
+ no shutdown
+ exit
+
+! Configure camera ports (Camera VLAN)
+interface range GigabitEthernet1/0/10-15
+ switchport mode access
+ switchport access vlan 30
+ power inline auto
+ switchport port-security
+ switchport port-security maximum 1
+ switchport port-security violation shutdown
+ switchport port-security mac-address sticky
+ spanning-tree portfast
+ no shutdown
+ exit
+
+! Configure server port
+interface GigabitEthernet1/0/20
+ switchport mode access
+ switchport access vlan 50
+ spanning-tree portfast
+ no shutdown
+ exit
+
+! Configure workstation port
+interface GigabitEthernet1/0/21
+ switchport mode access
+ switchport access vlan 40
+ spanning-tree portfast
+ no shutdown
+ exit
+
+! Enable logging
+logging on
+logging 192.168.50.10
+logging trap warnings
+
+do write memory
+end

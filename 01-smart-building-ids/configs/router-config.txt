@@ -1,0 +1,58 @@
+﻿# Router Configuration - Building-Router
+# =====================================
+
+enable
+configure terminal
+hostname Building-Router
+
+! Configure subinterfaces for each VLAN
+interface GigabitEthernet0/0/0
+ no shutdown
+ exit
+
+interface GigabitEthernet0/0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.254 255.255.255.0
+ exit
+
+interface GigabitEthernet0/0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.254 255.255.255.0
+ exit
+
+interface GigabitEthernet0/0/0.30
+ encapsulation dot1Q 30
+ ip address 192.168.30.254 255.255.255.0
+ exit
+
+interface GigabitEthernet0/0/0.40
+ encapsulation dot1Q 40
+ ip address 192.168.40.254 255.255.255.0
+ exit
+
+interface GigabitEthernet0/0/0.50
+ encapsulation dot1Q 50
+ ip address 192.168.50.254 255.255.255.0
+ exit
+
+! ACL to protect Server VLAN
+ip access-list extended PROTECT-SERVERS
+ remark Allow management from security workstation
+ permit ip host 192.168.40.10 192.168.50.0 0.0.0.255
+ permit ip 192.168.30.0 0.0.0.255 192.168.50.0 0.0.0.255
+ permit ip 192.168.20.0 0.0.0.255 192.168.50.0 0.0.0.255
+ deny ip any 192.168.50.0 0.0.0.255
+ permit ip any any
+ exit
+
+interface GigabitEthernet0/0/0.50
+ ip access-group PROTECT-SERVERS in
+ exit
+
+! Enable logging
+logging on
+logging 192.168.50.10
+logging trap informational
+
+do write memory
+end
